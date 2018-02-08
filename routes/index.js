@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const client = require('redis').createClient();
 const config = require('../config');
+const client = require('redis').createClient(config.redis.port, config.redis.host);
 
 router.post('/echoAtTime', (req, res, next) => {
     let time = req.body.time || 0;
